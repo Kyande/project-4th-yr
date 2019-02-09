@@ -1,30 +1,30 @@
 --# -path=.:../abstract:../translator
 
-concrete ParseEng of ParseEngAbs = 
+concrete ParseKam of ParseKamAbs =
   TenseX - [Pol, PNeg, PPos, SC],
-  CatEng,
-  NounEng - [PPartNP],
-  AdjectiveEng,
-  NumeralEng,
-  SymbolEng [PN, Symb, String, CN, Card, NP, MkSymb, SymbPN, CNNumNP],
-  ConjunctionEng,
-  VerbEng - [SlashV2V, PassV2, UseCopula, ComplVV, ComplVS],
-  AdverbEng,
-  PhraseEng,
-  SentenceEng - [UseCl], -- replaced by UseCl | ContractedUseCl
-  QuestionEng,
-  RelativeEng,
-  IdiomEng [NP, VP, Tense, Cl, ProgrVP, ExistNP, SelfAdvVP, SelfAdVVP, SelfNP],
-  ConstructionEng,
-  DocumentationEng,
-  ExtraEng [NP, Quant, VPSlash, VP, Tense, GenNP, PassVPSlash, PassAgentVPSlash,
+  CatKam,
+  NounNoun - [PPartNP],
+  AdjectiveKam,
+  NumeralKam,
+  SymbolKam [PN, Symb, String, CN, Card, NP, MkSymb, SymbPN, CNNumNP],
+  ConjunctionKam,
+  VerbKam - [SlashV2V, PassV2, UseCopula, ComplVV, ComplVS],
+  AdverbKam,
+  PhraseKam,
+  SentenceKam - [UseCl], -- replaced by UseCl | ContractedUseCl
+  QuestionKam,
+  RelativeKam,
+  IdiomKam [NP, VP, Tense, Cl, ProgrVP, ExistNP, SelfAdvVP, SelfAdVVP, SelfNP],
+  ConstructionKam,
+  DocumentationKam,
+  ExtraKam [NP, Quant, VPSlash, VP, Tense, GenNP, PassVPSlash, PassAgentVPSlash,
             Temp, Pol, Conj, VPS, ListVPS, S, Num, CN, RP, MkVPS, BaseVPS, ConsVPS, ConjVPS, PredVPS, GenRP,
             VPI, VPIForm, VPIInf, VPIPresPart, ListVPI, VV, MkVPI, BaseVPI, ConsVPI, ConjVPI, ComplVPIVV,
             ComplSlashPartLast,
             ClSlash, RCl, EmptyRelSlash, VS, V2S, ComplBareVS, SlashBareV2S],
 
-  DictionaryEng ** 
-open MorphoEng, ResEng, ParadigmsEng, (G = GrammarEng), (E = ExtraEng), Prelude in {
+  DictionaryKam **
+open MorphoKam, ResKam, ParadigmsKam, (G = GrammarKam), (E = ExtraKam), Prelude in {
 
 flags
   literal=Symb ;
@@ -67,13 +67,13 @@ lin
     s = \\n,c => v.s ! VPresPart ;
     g = Neutr
   } ;
-  
+
   GerundAP v = {
     s = \\agr => v.s ! VPresPart ;
     isPre = True
   } ;
 
-  PastPartAP vp = { 
+  PastPartAP vp = {
     s = \\a => vp.ad ! a ++ vp.ptp ++ vp.p ++ vp.c2 ++ vp.s2 ! a ++ vp.ext ;
     isPre = vp.isSimple                 -- depends on whether there are complements
   } ;
@@ -92,30 +92,30 @@ lin
                                            infVP v.typ vp ant.a p.p a)
                                    (predVc v) ;
 
-  SlashVPIV2V v p vpi = insertObjc (\\a => p.s ++ 
-                                           v.c3 ++ 
+  SlashVPIV2V v p vpi = insertObjc (\\a => p.s ++
+                                           v.c3 ++
                                            vpi.s ! VVAux ! a)
                                    (predVc v) ;
-  ComplVV v a p vp = insertObj (\\agr => a.s ++ p.s ++ 
+  ComplVV v a p vp = insertObj (\\agr => a.s ++ p.s ++
                                          infVP v.typ vp a.a p.p agr)
                                (predVV v) ;
   ComplVS vs s = G.ComplVS vs s | ComplBareVS vs s ;
 
   PredVPosv np vp = {
-      s = \\t,a,b,o => 
-        let 
+      s = \\t,a,b,o =>
+        let
           verb  = vp.s ! t ! a ! b ! o ! np.a ;
           compl = vp.s2 ! np.a
         in
         case o of {
           ODir _ => compl ++ frontComma ++ np.s ! npNom ++ verb.aux ++ vp.ad ! np.a ++ verb.fin ++ verb.adv ++ verb.inf ;
-          OQuest => verb.aux ++ compl ++ frontComma ++ np.s ! npNom ++ verb.adv ++ vp.ad ! np.a ++ verb.fin ++ verb.inf 
+          OQuest => verb.aux ++ compl ++ frontComma ++ np.s ! npNom ++ verb.adv ++ vp.ad ! np.a ++ verb.fin ++ verb.inf
           }
     } ;
-    
+
   PredVPovs np vp = {
-      s = \\t,a,b,o => 
-        let 
+      s = \\t,a,b,o =>
+        let
           verb  = vp.s ! t ! a ! b ! o ! np.a ;
           compl = vp.s2 ! np.a
         in
@@ -137,10 +137,10 @@ lin
 
   CompS s = {s = \\_ => "that" ++ s.s} ;
   CompQS qs = {s = \\_ => qs.s ! QIndir} ;
-  CompVP ant p vp = {s = \\a => ant.s ++ p.s ++ 
+  CompVP ant p vp = {s = \\a => ant.s ++ p.s ++
                                 infVP VVInf vp ant.a p.p a} ;
 
-  VPSlashVS vs vp = 
+  VPSlashVS vs vp =
     insertObj (\\a => infVP VVInf vp Simul CPos a) (predV vs) **
     {c2 = ""; missingAdv = False; gapInMiddle = False} ;
 
@@ -158,14 +158,14 @@ lin
     s = \\c => np1.s ! c ++ frontComma ++ np2.s ! npNom ++ finalComma ;
     a = np1.a
   } ;
-  
+
   NameCN pn cn = {
     s = \\n,c => pn.s ! npcase2case npNom ++ cn.s ! n ! c ;
     g = cn.g
   } ;
-  
+
   AdAdV = cc2 ;
-  
+
   UttAdV adv = adv;
 
 lin

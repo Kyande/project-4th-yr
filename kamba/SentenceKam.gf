@@ -1,4 +1,4 @@
-concrete SentenceEng of Sentence = CatEng ** open Prelude, ResEng in {
+concrete SentenceKam of Sentence = CatKam ** open Prelude, ResKam in {
 
   flags optimize=all_subs ;
 
@@ -9,8 +9,8 @@ concrete SentenceEng of Sentence = CatEng ** open Prelude, ResEng in {
     PredSCVP sc vp = let a = agrP3 Sg in mkClause (sc.s ! a) a vp ;
 
     ImpVP vp = {
-      s = \\pol,n => 
-        let 
+      s = \\pol,n =>
+        let
           agr   = AgP2 (numImp n) ;
           verb  = infVP VVAux vp False Simul CPos agr ;
           dont  = case pol of {
@@ -22,7 +22,7 @@ concrete SentenceEng of Sentence = CatEng ** open Prelude, ResEng in {
         dont ++ verb
     } ;
 
-    SlashVP np vp = 
+    SlashVP np vp =
       mkClause (np.s ! npNom) np.a vp ** {c2 = vp.c2} ;
 
     AdvSlash slash adv = {
@@ -32,8 +32,8 @@ concrete SentenceEng of Sentence = CatEng ** open Prelude, ResEng in {
 
     SlashPrep cl prep = cl ** {c2 = prep.s} ;
 
-    SlashVS np vs slash = 
-      mkClause (np.s ! npNom) np.a 
+    SlashVS np vs slash =
+      mkClause (np.s ! npNom) np.a
         (insertObj (\\_ => conjThat ++ slash.s) (predV vs))  **
         {c2 = slash.c2} ;
 
@@ -68,4 +68,3 @@ concrete SentenceEng of Sentence = CatEng ** open Prelude, ResEng in {
 ---    ctr = contrNeg True ;  -- contracted negations
 
 }
-

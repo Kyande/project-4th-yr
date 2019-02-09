@@ -1,1 +1,1 @@
-resource OverloadEng = Overload with (Grammar = GrammarEng) ;
+resource OverloadKam = Overload with (Grammar = GrammarKam) ;

@@ -1,11 +1,11 @@
 --# -path=.:../abstract:../common
 
-concrete TerminologyEng of Terminology = CatEng ** open 
-  ResEng,
-  ParadigmsEng,
-  (G = GrammarEng),
-  (S = SyntaxEng),
-  (L = LexiconEng),
+concrete TerminologyKam of Terminology = CatKam ** open
+  ResKam,
+  ParadigmsKam,
+  (G = GrammarKam),
+  (S = SyntaxKam),
+  (L = LexiconKam),
   Prelude
 in {
 
@@ -55,7 +55,7 @@ lin
 
   active_Parameter = mkN "active" ;
   passive_Parameter = mkN "passive" ;
-  
+
   imperative_Parameter = mkN "imperative" ;
   indicative_Parameter = mkN "indicative" ;
   conjunctive_Parameter = mkN "conjunctive" ;

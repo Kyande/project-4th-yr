@@ -1,4 +1,4 @@
-abstract ParseEngAbs = 
+abstract ParseKamAbs =
   Tense,
   Cat,
   Noun - [PPartNP],
@@ -15,7 +15,7 @@ abstract ParseEngAbs =
   Idiom [NP, VP, Cl, Tense, ProgrVP, ExistNP, SelfAdvVP, SelfAdVVP, SelfNP],
   Construction,
   Documentation,
-  ExtraEngAbs [NP, Quant, VPSlash, VP, GenNP, PassVPSlash, PassAgentVPSlash,
+  ExtraKamAbs [NP, Quant, VPSlash, VP, GenNP, PassVPSlash, PassAgentVPSlash,
                Temp, Tense, Pol, Conj, VPS, ListVPS, S, Num, CN, RP, MkVPS, BaseVPS, ConsVPS, ConjVPS, PredVPS, GenRP,
                VPI, ListVPI, VV, MkVPI, BaseVPI, ConsVPI, ConjVPI, ComplVPIVV, ComplSlashPartLast,
                ClSlash, RCl, EmptyRelSlash, VS, V2S, ComplBareVS, SlashBareV2S],
@@ -51,11 +51,11 @@ fun CompoundSgCN : CN -> CN -> CN ;
     SlashVPIV2V : V2V -> Pol -> VPI -> VPSlash ;
 
     SlashSlashV2V : V2V -> Ant -> Pol -> VPSlash -> VPSlash ;
-    
+
     ComplVV : VV -> Ant -> Pol -> VP -> VP ;
 
     PredVPosv,PredVPovs : NP -> VP -> Cl ;
-    
+
     that_RP : RP ;
     who_RP : RP ;
 

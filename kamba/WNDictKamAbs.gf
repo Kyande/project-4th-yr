@@ -1,4 +1,4 @@
-abstract WNDictEngAbs = Cat ** {
+abstract WNDictKamAbs = Cat ** {
 
 fun a_PN : PN;
 fun a'man_PN : PN;

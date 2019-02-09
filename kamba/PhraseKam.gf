@@ -1,4 +1,4 @@
-concrete PhraseEng of Phrase = CatEng ** open Prelude, ResEng in {
+concrete PhraseKam of Phrase = CatKam ** open Prelude, ResKam in {
 
   lin
     PhrUtt pconj utt voc = {s = pconj.s ++ utt.s ++ voc.s} ;

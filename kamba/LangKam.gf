@@ -1,11 +1,11 @@
 --# -path=.:../abstract:../common:../api
 
-concrete LangEng of Lang = 
-  GrammarEng,
-  LexiconEng
-  ,ConstructionEng
-  ,DocumentationEng --# notpresent
-  ,MarkupEng - [stringMark]
+concrete LangKam of Lang =
+  GrammarKam,
+  LexiconKam
+  ,ConstructionKam
+  ,DocumentationKam --# notpresent
+  ,MarkupKam - [stringMark]
   ** {
 
 

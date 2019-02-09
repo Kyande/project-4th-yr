@@ -1,6 +1,6 @@
 --# -path=.:../abstract:../common
 
-concrete MarkupEng of Markup = CatEng, MarkHTMLX ** {
+concrete MarkupKam of Markup = CatKam, MarkHTMLX ** {
 
 lin
   MarkupCN   m cn  = {s = \\n,c => appMark m (cn.s ! n ! c) ; g = cn.g} ;
