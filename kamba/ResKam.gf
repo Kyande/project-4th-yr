@@ -1,6 +1,6 @@
 --# -path=.:../abstract:../common:../../prelude
 
---1 English auxiliary operations.
+--1 Kamba auxiliary operations.
 
 -- This module contains operations that are needed to make the
 -- resource syntax work. To define everything that is needed to
@@ -20,7 +20,7 @@ resource ResEng = ParamX ** open Prelude in {
 
   param Case    = Nom | Loc ;
   param Animacy = AN | IN;
-  param Gender  = g9_10 | g11_10 | g11a_10 | g12_13 | g16_17;
+  param Gender  = g1_2 | g1a_2 | g3_4 | g3a_4 | g5_6 | g5a_6 ;
 
 --2 For $Verb$
 

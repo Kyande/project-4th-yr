@@ -1,50 +1,44 @@
 --# -path=.:../../prelude
 
---1 A Simple English Resource Morphology
+--1 A Simple Kamba Resource Morphology
 --
--- Aarne Ranta 2002 -- 2005
+-- Kyande Michael 2019
 --
 -- This resource morphology contains definitions needed in the resource
--- syntax. To build a lexicon, it is better to use $ParadigmsEng$, which
+-- syntax. To build a lexicon, it is better to use $ParadigmsKam$, which
 -- gives a higher-level access to this module.
 
 resource MorphoEng = open Prelude, (Predef=Predef), ResEng in {
 
   flags optimize=all ;
 
---2 Determiners
+--2 Nouns
 
-  oper 
+  oper
+  CommonNoun : Type = {s : Number => Str ; g : Gender ; anim : Animacy } ;
 
-  mkDeterminer : Number -> Str -> 
-    {s : Str ; sp : Gender => Bool => NPCase => Str; n : Number ; hasNum : Bool} = \n,s -> mkDeterminerSpec n s s s False ; --- was True!?
+  numForms : Str -> Str -> Number => Str = \one, many ->
+    table {Sg => one ; Pl => many};
 
-  mkDeterminerSpec : Number -> Str -> Str -> Str -> Bool ->
-    {s : Str ; sp : Gender => Bool => NPCase => Str; n : Number ; hasNum : Bool} = \n,s,sp1,sp2,hasNum ->
-    {s = s;
-     sp = \\g,hasAdj,c => regGenitiveS (case g of {Masc=>sp1; Fem=>sp1; Neutr=>sp2}) ! npcase2case c ;
-     n = n ;
-     hasNum = hasNum ; --- doesn't matter when s = sp
-     } ;
+  mkNoun : (Number => Str) -> Gender -> Animacy -> CommonNoun =
+    \number_format, gender, animacy -> {s = number_format ; g = gender ; anim =animacy};
 
---2 Pronouns
+  mkNounIrreg : Str -> Str -> Gender -> Animacy -> CommonNoun =
+    \noun_sg, noun_pl, gender, animacy ->
+      mkNoun (numForms noun_sg noun_pl) gender animacy;
 
-
-  mkPron : (i,me,my,mine : Str) -> Number -> Person -> Gender -> 
-    {s : NPCase => Str ; sp : Case => Str ; a : Agr} =
-     \i,me,my,mine,n,p,g -> {
-     s = table {
-       NCase Nom => i ;
-       NPAcc => me ;
-       NPNomPoss => mine ;
-       NCase Gen => my
-       } ;
-     a = toAgr n p g ;
-     sp = table {
-       Nom => mine ;
-       _ => genitiveS mine
-       }
-   } ;
+  mkNounReg : Str -> Gender -> Animacy -> CommonNoun =
+    \noun_sg, gender, animacy -> let noun_pl = case gender of {
+    g1_2    => "a" + Predef.drop 2 noun_sg ;
+    g1a_2   => Predef.drop 2 noun_sg ;
+    g3_4    => "mi" + Predef.drop 2 noun_sg ;
+    g3a_4   => case Predef.take 3 of {
+      "mwi" => "mi" + Predef.drop 3 noun_sg ;
+      _     => "my" + Predef.drop 2 noun_sg ;
+    };
+    g5_6    => "ma" + Predef.drop 1 noun_sg ;
+    g5a_6   => "ma" + noun_sg ;
+  };
+  in mkNounIrreg noun_sg noun_pl gender animacy;
 
 } ;
-

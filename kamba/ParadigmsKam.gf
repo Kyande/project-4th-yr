@@ -24,11 +24,12 @@ oper
 
   Gender : Type ;
 
-  ka_tu : Gender ;
-  va_ku : Gender ;
-  n_n   : Gender ;
-  u_n   : Gender ;
-  w_n   : Gender ;
+  mu_a  : Gender ;
+  mw_a  : Gender ;
+  mu_mi : Gender ;
+  mw_my : Gender ; -- has special case
+  i_ma  : Gender ;
+  y_ma  : Gender ;
 
 
 -- To abstract over number names, we define the following.
@@ -55,6 +56,17 @@ oper
 
 
 --2 Nouns
+
+-- generate regular nouns i.e nouns that do not need special handling
+
+regN : Str -> Gender -> Animacy -> N;
+regN = \noun, gender, animacy ->
+  mkNounReg noun gender animacy ** {lock_N = <>};
+-- generate irregular nouns i.e nouns that require special handling
+mkN : (noun_sg, noun_pl : Str) -> Gender -> Animacy -> N;
+mkN = \noun_sg, noun_pl, gender, animacy ->
+  mkNounIrreg noun_sg noun_pl gender animacy ** {lock_N = <>};
+
 
 --3 Relational nouns
 
@@ -89,11 +101,12 @@ oper
   plural      = Pl;
   nominative  = Nom;
   locative    = Loc;
-  ka_tu       = g12_13;
-  va_ku       = g16_17;
-  n_n         = g9_10;
-  u_n         = g11_10;
-  w_n         = g11a_10;
+  mu_a        = g1_2 ;
+  mw_a        = g1a_2 ;
+  mu_mi       = g3_4 ;
+  mw_my       = g3a_4 ; -- has special case
+  i_ma        = g5_6 ;
+  y_ma        = g5a_6 ; -- has a lot of irregulars.
 
   -- npNumber np = (fromAgr np.a).n ;
 
