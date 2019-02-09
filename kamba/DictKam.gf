@@ -1,4 +1,4 @@
-concrete DictEng of DictEngAbs = CatEng ** open MorphoEng, ResEng, ParadigmsEng, IrregEng, Prelude in {
+concrete DictKam of DictKamAbs = CatKam ** open MorphoKam, ResKam, ParadigmsKam, IrregKam, Prelude in {
 
 flags
   coding=utf8 ;

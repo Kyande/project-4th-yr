@@ -1,7 +1,7 @@
 --# -path=.:../abstract
 
-concrete ConstructionEng of Construction = CatEng **
-  open SyntaxEng, SymbolicEng, ParadigmsEng, (L = LexiconEng), (E = ExtendEng), (G = GrammarEng), (R = ResEng), (S = StructuralEng), Prelude in {
+concrete ConstructionKam of Construction = CatKam **
+  open SyntaxKam, SymbolicKam, ParadigmsKam, (L = LexiconKam), (E = ExtendKam), (G = GrammarKam), (R = ResKam), (S = StructuralKam), Prelude in {
 
 
 lin

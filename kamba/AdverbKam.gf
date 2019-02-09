@@ -1,4 +1,4 @@
-concrete AdverbEng of Adverb = CatEng ** open ResEng, Prelude in {
+concrete AdverbKam of Adverb = CatKam ** open ResKam, Prelude in {
 
   lin
     PositAdvAdj a = {s = a.s ! AAdv} ;

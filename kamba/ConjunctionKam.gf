@@ -1,5 +1,5 @@
-concrete ConjunctionEng of Conjunction = 
-  CatEng ** open ResEng, Coordination, Prelude in {
+concrete ConjunctionKam of Conjunction =
+  CatKam ** open ResKam, Coordination, Prelude in {
 
   flags optimize=all_subs ;
 
@@ -22,11 +22,11 @@ concrete ConjunctionEng of Conjunction =
       c = ss.c
       } ;
 
-    ConjIAdv = conjunctDistrSS ;   
+    ConjIAdv = conjunctDistrSS ;
 
     ConjCN co ns = conjunctDistrTable2 Number Case co ns ** {g = Neutr} ; --- gender?
 
-    ConjDet c xs = let cxs = (conjunctDistrSS c xs).s in {s = cxs ; sp = \\_,_,_ => cxs ++ "one" ; hasNum = False ; n = xs.n} ;   
+    ConjDet c xs = let cxs = (conjunctDistrSS c xs).s in {s = cxs ; sp = \\_,_,_ => cxs ++ "one" ; hasNum = False ; n = xs.n} ;
 
 -- These fun's are generated from the list cat's.
 

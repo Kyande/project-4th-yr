@@ -1,4 +1,4 @@
-abstract DictEngAbs = Cat ** {
+abstract DictKamAbs = Cat ** {
 
 fun a_bomb_N : N;
 fun a_fortiori_Adv : Adv;

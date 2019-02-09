@@ -1,6 +1,6 @@
 --# -path=.:../abstract:../common
-concrete DocumentationEng of Documentation = CatEng ** open
-  ResEng,
+concrete DocumentationKam of Documentation = CatKam ** open
+  ResKam,
   HTML in {
 
 lincat
@@ -69,7 +69,7 @@ lin
 
   InflectionV3 v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    v.c2 ++ pp "arg1" ++
@@ -79,7 +79,7 @@ lin
 
   InflectionV2V v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    v.c2 ++ pp "object" ++
@@ -93,7 +93,7 @@ lin
 
   InflectionV2S v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    v.c2 ++ pp "object" ++
@@ -103,7 +103,7 @@ lin
 
   InflectionV2Q v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    pp "question") ;
@@ -112,7 +112,7 @@ lin
 
   InflectionV2A v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    v.c2 ++ pp "object" ++
@@ -122,7 +122,7 @@ lin
 
   InflectionVV v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VVF VInf ++ v.p ++
                    case v.typ of {
@@ -141,7 +141,7 @@ lin
 
   InflectionVS v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    "that" ++ pp "sentence") ;
@@ -150,7 +150,7 @@ lin
 
   InflectionVQ v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    pp "question") ;
@@ -159,7 +159,7 @@ lin
 
   InflectionVA v = {
     t = "v" ;
-    s1= heading1 "Verb" ++ 
+    s1= heading1 "Verb" ++
         paragraph (pp "subject" ++
                    v.s ! VInf ++ v.p ++
                    pp "adjective") ;

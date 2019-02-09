@@ -1,6 +1,6 @@
 --# -path=.:prelude:../abstract:../common
 
-concrete IrregEng of IrregEngAbs = CatEng ** open ParadigmsEng in {
+concrete IrregKam of IrregKamAbs = CatKam ** open ParadigmsKam in {
 
 flags optimize=values ;
 

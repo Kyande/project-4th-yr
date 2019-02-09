@@ -1,21 +1,21 @@
 --# -path=.:../abstract:../common:prelude
 
-concrete GrammarEng of Grammar = 
-  NounEng, 
-  VerbEng, 
-  AdjectiveEng,
-  AdverbEng,
-  NumeralEng,
-  SentenceEng,
-  QuestionEng,
-  RelativeEng,
-  ConjunctionEng,
-  PhraseEng,
+concrete GrammarKam of Grammar =
+  NounKam,
+  VerbKam,
+  AdjectiveKam,
+  AdverbKam,
+  NumeralKam,
+  SentenceKam,
+  QuestionKam,
+  RelativeKam,
+  ConjunctionKam,
+  PhraseKam,
   TextX - [Pol,PPos,PNeg,SC,CAdv],
-  StructuralEng,
-  IdiomEng,
+  StructuralKam,
+  IdiomKam,
   TenseX - [Pol,PPos,PNeg,SC,CAdv]
-  ** open ResEng, Prelude in {
+  ** open ResKam, Prelude in {
 
 flags startcat = Phr ; unlexer = text ; lexer = text ;
 

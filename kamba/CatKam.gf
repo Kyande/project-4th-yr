@@ -1,4 +1,4 @@
-concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
+concrete CatKam of Cat = CommonX - [Pol,SC,CAdv] ** open ResKam, Prelude in {
 
   flags optimize=all_subs ;
 
@@ -28,14 +28,14 @@ concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
 
     QCl = {s : ResEng.Tense => Anteriority => CPolarity => QForm => Str} ;
     IP = {s : NPCase => Str ; n : Number} ;
-    IComp = {s : Str} ;    
+    IComp = {s : Str} ;
     IDet = {s : Str ; n : Number} ;
     IQuant = {s : Number => Str} ;
 
 -- Relative
 
     RCl = {
-      s : ResEng.Tense => Anteriority => CPolarity => Agr => Str ; 
+      s : ResEng.Tense => Anteriority => CPolarity => Agr => Str ;
       c : NPCase
       } ;
     RP = {s : RCase => Str ; a : RAgr} ;
@@ -44,11 +44,11 @@ concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
 
     VP = ResEng.VP ;
     VPSlash = ResEng.SlashVP ;
-    Comp = {s : Agr => Str} ; 
+    Comp = {s : Agr => Str} ;
 
 -- Adjective
 
-    AP = {s : Agr => Str ; isPre : Bool} ; 
+    AP = {s : Agr => Str ; isPre : Bool} ;
     SC = {s : Agr => Str} ;
 
 -- Noun
