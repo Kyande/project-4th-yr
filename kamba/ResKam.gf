@@ -2,7 +2,7 @@
 
 --1 Kamba auxiliary operations.
 
-resource ResEng = ParamX ** open Prelude in {
+resource ResKam = ParamX ** open Prelude in {
 
   flags optimize=all ;
 

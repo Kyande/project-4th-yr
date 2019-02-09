@@ -8,7 +8,7 @@
 -- syntax. To build a lexicon, it is better to use $ParadigmsKam$, which
 -- gives a higher-level access to this module.
 
-resource MorphoEng = open Prelude, (Predef=Predef), ResEng in {
+resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 
   flags optimize=all ;
 
