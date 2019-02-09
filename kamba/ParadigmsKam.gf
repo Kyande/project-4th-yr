@@ -24,13 +24,22 @@ oper
 
   Gender : Type ;
 
-  mu_a  : Gender ;
-  mw_a  : Gender ;
-  mu_mi : Gender ;
-  mw_my : Gender ; -- has special case
-  i_ma  : Gender ;
-  y_ma  : Gender ;
-
+  mu_a    : Gender ;
+  mw_a    : Gender ;
+  mu_mi   : Gender ;
+  mw_my   : Gender ; -- has special case
+  i_ma    : Gender ;
+  y_ma    : Gender ; -- has a lot of irregulars.
+  ki_i    : Gender ;
+  ky_sy   : Gender ;
+  n_n     : Gender ;
+  u_n     : Gender ;
+  w_n     : Gender ;
+  ka_tu   : Gender ;
+  u_ma    : Gender ;
+  ku_ma   : Gender ;
+  kw_ma   : Gender ;
+  va_ku   : Gender ;
 
 -- To abstract over number names, we define the following.
 
@@ -107,6 +116,16 @@ mkN = \noun_sg, noun_pl, gender, animacy ->
   mw_my       = g3a_4 ; -- has special case
   i_ma        = g5_6 ;
   y_ma        = g5a_6 ; -- has a lot of irregulars.
+  ki_i        = g7_8 ;
+  ky_sy       = g7a_8 ;
+  n_n         = g9_10 ;
+  u_n         = g11_10 ;
+  w_n         = g11a_10 ;
+  ka_tu       = g12_13 ;
+  u_ma        = g14_6 ;
+  ku_ma       = g15_6 ;
+  kw_ma       = g15a_6 ;
+  va_ku       = g16_17 ;
 
   -- npNumber np = (fromAgr np.a).n ;
 
