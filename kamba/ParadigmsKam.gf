@@ -34,11 +34,9 @@ oper
   ky_sy   : Gender ;
   n_n     : Gender ;
   u_n     : Gender ;
-  w_n     : Gender ;
   ka_tu   : Gender ;
   u_ma    : Gender ;
   ku_ma   : Gender ;
-  kw_ma   : Gender ;
   va_ku   : Gender ;
 
 -- To abstract over number names, we define the following.
@@ -119,14 +117,10 @@ mkN = \noun_sg, noun_pl, gender, animacy ->
   ki_i        = g7_8 ;
   ky_sy       = g7a_8 ;
   n_n         = g9_10 ;
-  u_n         = g11_10 ;
-  w_n         = g11a_10 ;
-  ka_tu       = g12_13 ;
+  u_n         = g11_10 ; -- has a lot of irregulars.
+  ka_tu       = g12_13 ; -- diminutives.
   u_ma        = g14_6 ;
   ku_ma       = g15_6 ;
-  kw_ma       = g15a_6 ;
   va_ku       = g16_17 ;
-
-  -- npNumber np = (fromAgr np.a).n ;
 
 } ;

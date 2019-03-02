@@ -37,7 +37,15 @@ resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 			_     => "my" + Predef.drop 2 noun_sg
 		};
 		g5_6    => "ma" + Predef.drop 1 noun_sg ;
-		g5a_6   => "ma" + noun_sg
+		g5a_6   => "ma" + noun_sg;
+		g7_8	=> Predef.drop 1 noun_sg;
+		g7a_8	=> "sy" + Predef.drop 1 noun_sg;
+		g9_10	=> noun_sg;
+		g11_10	=> "n" + Predef.drop 1 noun_sg;
+		g12_13	=> "tu" + Predef.drop 2 noun_sg;
+		g14_6	=> "ma" + Predef.drop 1 noun_sg;
+		g15_6	=> "ma" + Predef.drop 2 noun_sg;
+		g16_17	=> "ku" + Predef.drop 2 noun_sg
 	};
 	in mkNounIrreg noun_sg noun_pl gender animacy;
 
