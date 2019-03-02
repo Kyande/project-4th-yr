@@ -75,11 +75,12 @@ concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
     Ord = { s : Case => Str } ;
     Num  = {s,sp : Bool => Case => Str ; n : Number ; hasCard : Bool} ;
     Card = {s,sp : Bool => Case => Str ; n : Number} ;
+    ACard = {s : Case => Str ; n : Number} ;
     Quant = {s : Bool => Number => Str ; sp : Gender => Bool => Number => NPCase => Str; isDef : Bool} ;
 
 -- Numeral
 
-    Numeral = {s : CardOrd => Case => Str ; n : Number} ;
+    Numeral = {s : Bool => CardOrd => Case => Str ; n : Number} ;
     Digits  = {s : CardOrd => Case => Str ; n : Number ; tail : DTail} ;
 
 -- Structural
@@ -91,9 +92,9 @@ concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
 
 -- Open lexical classes, e.g. Lexicon
 
-    V, VS, VQ, VA = Verb ; -- = {s : VForm => Str} ;
-    V2, V2A, V2Q, V2S = Verb ** {c2 : Str} ;
-    V3 = Verb ** {c2, c3 : Str} ;
+    V, VS, VQ, VA = Verb ;
+    V2, V2Q, V2S = Verb ** {c2 : Str} ;
+    V2A,V3 = Verb ** {c2, c3 : Str} ;
     VV = {s : VVForm => Str ; p : Str ; typ : VVType} ;
     V2V = Verb ** {c2,c3 : Str ; typ : VVType} ;
 
@@ -113,8 +114,8 @@ concrete CatEng of Cat = CommonX - [Pol,SC,CAdv] ** open ResEng, Prelude in {
     VPSlash = \s -> predV {s = \\_ => s; p = ""; isRefl = False} ** {c2 = ""; gapInMiddle = False; missingAdv = False } ;
 
     V, VS, VQ, VA = \s -> {s = \\_ => s; p = ""; isRefl = False} ;
-    V2, V2A, V2Q, V2S = \s -> {s = \\_ => s; p = ""; isRefl = False; c2=""} ;
-    V3 = \s -> {s = \\_ => s; p = ""; isRefl = False; c2,c3=""} ;
+    V2, V2Q, V2S = \s -> {s = \\_ => s; p = ""; isRefl = False; c2=""} ;
+    V3, V2A = \s -> {s = \\_ => s; p = ""; isRefl = False; c2,c3=""} ;
     VV = \s -> {s = \\_ => s; p = ""; isRefl = False; typ = VVInf} ;
     V2V = \s -> {s = \\_ => s; p = ""; isRefl = False; c2,c3="" ; typ = VVInf} ;
 

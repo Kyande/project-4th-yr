@@ -1,11 +1,11 @@
---# -path=.:../abstract:../common:../api
+--# -path=.:../abstract:../common:../api:../prelude
 
 concrete LangKam of Lang =
-  GrammarKam,
+  -- GrammarKam,
   LexiconKam
-  ,ConstructionKam
-  ,DocumentationKam --# notpresent
-  ,MarkupKam - [stringMark]
+  -- ,ConstructionKam
+  -- ,DocumentationKam --# notpresent
+  -- ,MarkupKam - [stringMark]
   ** {
 
 

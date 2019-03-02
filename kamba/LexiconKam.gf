@@ -1,7 +1,9 @@
 --# -path=.:prelude
 
 concrete LexiconKam of Lexicon = CatKam **
-  open ParadigmsKam, IrregKam, Prelude in {
+  open ParadigmsKam, 
+  -- IrregKam, 
+  Prelude in {
 
 flags
   optimize=values ;

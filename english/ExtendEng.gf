@@ -211,7 +211,7 @@ concrete ExtendEng of Extend =
     ptp = be.ptp ;
     inf = be.inf ;
     ad = \\_ => [] ;
-    s2 = \\a => vps.ad ! a ++ ppt ++ vps.p ++ ag ++ vps.s2 ! a ++ vps.c2 ; ---- place of agent
+    s2 = \\a => vps.ad ! a ++ ppt ++ vps.p  ++ vps.s2 ! a ++ ag ++ vps.c2 ; ---- place of agent
     isSimple = False ;
     ext = vps.ext
     } ;
@@ -251,10 +251,11 @@ concrete ExtendEng of Extend =
    SlashBareV2S v s = insertExtrac s.s (predVc v) ;
 
   CompoundN noun cn = {
-    s = \\n,c => noun.s ! Sg ! Nom ++ cn.s ! n ! c ;
+    s = variants {\\n,c => noun.s ! Sg ! Nom ++                    cn.s ! n ! c ;
+                  \\n,c => noun.s ! Sg ! Nom ++ BIND++"-"++BIND ++ cn.s ! n ! c} ;
     g = cn.g
   } ;
-  
+
   CompoundAP noun adj = {
     s = variants {\\_ => noun.s ! Sg ! Nom ++                    adj.s ! AAdj Posit Nom ;
                   \\_ => noun.s ! Sg ! Nom ++ BIND++"-"++BIND ++ adj.s ! AAdj Posit Nom} ;
