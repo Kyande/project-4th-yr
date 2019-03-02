@@ -168,6 +168,7 @@ oper
     compoundA : A -> A ; -- force comparison with more/most
     simpleA   : A -> A ; -- force comparison with -er,-est
     irregAdv  : A -> Str -> A ;  -- adverb irreg, e.g. "fast"
+    invarA    : Str -> A ; -- adjective that does not vary in morphology
 
 --3 Two-place adjectives
 
@@ -312,7 +313,8 @@ oper
   mkVS  : V -> VS ; -- sentence-compl e.g. say (that S)
   mkV2S : V -> Prep -> V2S ; -- e.g. tell (NP) (that S)
   mkVV  : V -> VV ; -- e.g. want (to VP)
-  infVV : V -> VV ; -- e.g. want (to VP)
+  auxVV : V -> VV ; -- e.g. must (VP)
+  infVV : V -> VV ; -- e.g. must (VP) (old name of auxVV)
   ingVV : V -> VV ; -- e.g. start (VPing)
   mkV2V : overload {
     mkV2V : Str -> V2V ;
@@ -321,7 +323,11 @@ oper
     } ;
   ingV2V : V -> Prep -> Prep -> V2V ; -- e.g. prevent (noPrep NP) (from VP-ing)
   mkVA  : V -> VA ; -- e.g. become (AP)
-  mkV2A : V -> Prep -> V2A ; -- e.g. paint (NP) (AP)
+  mkV2A : overload {
+    mkV2A : V -> V2A ; -- e.g. paint (NP) (AP)
+    mkV2A : V -> Prep -> V2A ; -- backwards compatibility
+    mkV2A : V -> Prep -> Prep -> V2A ; -- e.g. strike (NP) as (AP)
+    } ;
   mkVQ  : V -> VQ ; -- e.g. wonder (QS)
   mkV2Q : V -> Prep -> V2Q ; -- e.g. ask (NP) (QS)
 
@@ -574,8 +580,13 @@ mkInterj : Str -> Interj
     p = v.p ; 
     typ = VVInf
     } ;
-  infVV  v = lin VV {
-    s = table {VVF vf => v.s ! vf ; _ => v.s ! VInf} ;
+  auxVV, infVV = \v -> lin VV {
+    s = table {
+          VVF vf => v.s ! vf ; 
+          VVPresNeg => v.s ! VPres ++ "not" ; 
+          VVPastNeg => v.s ! VPast ++ "not" ; --# notpresent
+          _ => v.s ! VInf
+          } ;
     p = v.p ; 
     typ = VVAux
     } ;
@@ -601,7 +612,11 @@ mkInterj : Str -> Interj
 
   ingV2V v p t = lin V2V (prepV2 v p ** {c3 = t.s ; typ = VVPresPart}) ;
   mkVA  v = lin VA v ;
-  mkV2A v p = lin V2A (prepV2 v p) ;
+  mkV2A = overload {
+    mkV2A : V -> V2A = \v -> lin V2A (dirdirV3 v) ;
+    mkV2A : V -> Prep -> V2A = \v,p -> lin V2A (dirV3 v p) ;
+    mkV2A : V -> Prep -> Prep -> V2A = \v,p1,p2 -> lin V2A (prepPrepV3 v p1 p2) ;
+    } ;
   mkV2Q v p = lin V2Q (prepV2 v p) ;
 
   mkAS  v = v ;
@@ -645,6 +660,8 @@ mkInterj : Str -> Interj
     mkA : (good,better,best,well : Str) -> A = \a,b,c,d ->
       mkAdjective a b c d
     } ;
+
+  invarA s = mkAdjective s s s s ;
 
   compoundA = compoundADeg ;
   simpleA a = 
