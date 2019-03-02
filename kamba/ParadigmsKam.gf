@@ -30,6 +30,7 @@ oper
   mw_my   : Gender ; -- has special case
   i_ma    : Gender ;
   y_ma    : Gender ; -- has a lot of irregulars.
+<<<<<<< HEAD
   ki_i    : Gender ;
   ky_sy   : Gender ;
   n_n     : Gender ;
@@ -38,6 +39,18 @@ oper
   u_ma    : Gender ;
   ku_ma   : Gender ;
   va_ku   : Gender ;
+=======
+  -- ki_i    : Gender ;
+  -- ky_sy   : Gender ;
+  -- n_n     : Gender ;
+  -- u_n     : Gender ;
+  -- w_n     : Gender ;
+  -- ka_tu   : Gender ;
+  -- u_ma    : Gender ;
+  -- ku_ma   : Gender ;
+  -- kw_ma   : Gender ;
+  -- va_ku   : Gender ;
+>>>>>>> 1be13bee4a27e572270b3365a7eba2a8870c41ce
 
 -- To abstract over number names, we define the following.
 
