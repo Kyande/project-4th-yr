@@ -13,13 +13,13 @@ lin
   person_N = regN "mundu" mu_a animate;
   elder_N = regN "mutumia" mu_a animate;
   guest_N = regN "mueni" mu_a animate;
-  youth_N = regN "mwanake" mw_a animate;
+  youth_N = regN "mwanake" mu_a animate;
   traveller_N = regN "muendi" mu_a animate;
   kamba_N = regN "mukamba" mu_a animate;
   farmer_N = regN "muimi" mu_a animate;
   speaker_N = regN "muneeni" mu_a animate;
   employee_N = regN "muandikwa" mu_a animate;
-  carpenter_N = regN "mwasuvya" mw_a animate;
+  carpenter_N = regN "mwasuvya" mu_a animate;
   tree_N = regN "muti" mu_mi inanimate;
   pole_N = regN "mukonzo" mu_mi inanimate;
   day_N = regN "muthenya" mu_mi inanimate;
@@ -28,10 +28,10 @@ lin
   flour_N = regN "mutu" mu_mi inanimate;
   thorn_N = regN "mwiwa" mu_mi inanimate;
   body_N = regN "mwii" mu_mi inanimate;
-  year_N = regN "mwaka" mw_my inanimate;
+  year_N = mkN "mwaka" "myaka" mu_mi inanimate;
   door_N = regN "muomo" mu_mi inanimate;
-  millet_N = regN "mwee" mw_my inanimate;
-  fire_N = regN "mwaki" mw_my inanimate;
+  millet_N = mkN "mwee" "myee" mu_mi inanimate;
+  fire_N = mkN "mwaki" "myaki" mu_mi inanimate;
   stone_N = regN "ivia" i_ma inanimate;
   tin_N = regN "ileve" i_ma inanimate;
   spear_N = regN "itumo" i_ma inanimate;
@@ -44,7 +44,7 @@ lin
   egg_N = regN "itumbi" i_ma inanimate;
   milk_N = mkN "iia" "iia" i_ma inanimate;
   eye_N = mkN "itho" "metho" i_ma inanimate;
-  hat_N = regN "ilele" ki_i inanimate;
+  hat_N = regN "kilele" ki_i inanimate;
   shoe_N = regN "kiatu" ki_i inanimate;
   chair_N = regN "kivila" ki_i inanimate;
   basket_N = regN "kikavu" ki_i inanimate;
@@ -54,8 +54,9 @@ lin
   -- market_N = regN "king'ang'a" ki_i inanimate;
   well_N = regN "kithima" ki_i inanimate;
   water_N = regN "kiwu" ki_i inanimate;
-  something_N = regN "kindu" ky_sy inanimate;
-  spoon_N = regN "kiko" ky_sy inanimate;
+  something_N = mkN "kindu" "syindu" ki_i inanimate;
+  spoon_N = mkN "kiko" "syiko" ki_i inanimate;
+  toe_N = regN "kyaa" ki_i inanimate;
   house_N = regN "nyumba" n_n inanimate;
   market_N = regN "ndunyu" n_n inanimate;
   path_N, road_N = regN "nzia" n_n inanimate;
@@ -87,5 +88,6 @@ lin
   foot_N = mkN "kuu" "mauu" ku_ma inanimate;
   arm_N = mkN "kwoko" "moko" ku_ma inanimate;
   place_N = regN "vandu" va_ku inanimate;
+  famine_N = regN "yua" i_ma inanimate;
 
 } ;

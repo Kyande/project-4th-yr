@@ -26,7 +26,7 @@ oper
   mkNomReg : Str -> Gender -> Animacy -> CommonNoun = \mtu,gen,anim -> 
    let watu = case gen of {
       g1_2   => case Predef.take 3 mtu of {
-	"mwa"  => Predef.drop 1 mtu ;
+	      "mwa"  => Predef.drop 1 mtu ;
         "mwi"  => "wa"+ Predef.drop 2 mtu ;
         _     => "wa" + Predef.drop 1 mtu 
            };	-- mtu/watu

@@ -1,12 +1,7 @@
 --# -path=.:../../prelude
 
 --1 A Simple Kamba Resource Morphology
---
--- Kyande Michael 2019
---
--- This resource morphology contains definitions needed in the resource
--- syntax. To build a lexicon, it is better to use $ParadigmsKam$, which
--- gives a higher-level access to this module.
+
 
 resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 
@@ -29,17 +24,22 @@ resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 
 	mkNounReg : Str -> Gender -> Animacy -> CommonNoun =
 		\noun_sg, gender, animacy -> let noun_pl = case gender of {
-		g1_2    => "a" + Predef.drop 2 noun_sg ;
-		g1a_2   => Predef.drop 2 noun_sg ;
-		g3_4    => "mi" + Predef.drop 2 noun_sg ;
-		g3a_4   => case Predef.take 3 of {
-			"mwi" => "mi" + Predef.drop 3 noun_sg ;
-			_     => "my" + Predef.drop 2 noun_sg
+		g1_2	=> case Predef.take 2 noun_sg of {
+			"mw"	=> Predef.drop 2 noun_sg ;
+			_		=> "a" + Predef.drop 2 noun_sg
 		};
-		g5_6    => "ma" + Predef.drop 1 noun_sg ;
-		g5a_6   => "ma" + noun_sg;
-		g7_8	=> Predef.drop 1 noun_sg;
-		g7a_8	=> "sy" + Predef.drop 1 noun_sg;
+		g3_4	=> case Predef.take 2 noun_sg of {
+			"mu" => "mi" + Predef.drop 2 noun_sg ;
+			"mw" => "mi" + Predef.drop 3 noun_sg 
+		};
+		g5_6	=> case Predef.take 1 noun_sg of {
+			"i"	=> "ma" + Predef.drop 1 noun_sg ;
+			_	=> "ma" + noun_sg
+		};
+		g7_8	=> case Predef.take 2 noun_sg of {
+			"ki" => Predef.drop 1 noun_sg;
+			"ky" => "s" + Predef.drop 1 noun_sg
+		};
 		g9_10	=> noun_sg;
 		g11_10	=> "n" + Predef.drop 1 noun_sg;
 		g12_13	=> "tu" + Predef.drop 2 noun_sg;

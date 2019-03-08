@@ -30,6 +30,7 @@ fun
   blow_V : V ;
   blue_A : A ;
   boat_N : N ;
+  body_N : N ;
   bone_N : N ;
   book_N : N ;
   boot_N : N ;
@@ -94,6 +95,7 @@ fun
   eye_N : N ;
   factory_N : N ;
   fall_V : V ;
+  famine_N : N ;
   far_Adv : Adv ;
   father_N2 : N2 ;
   fat_N : N ;
@@ -186,6 +188,7 @@ fun
   married_A2 : A2 ;
   meat_N : N ;
   milk_N : N ;
+  millet_N : N ;
   moon_N : N ;
   mother_N2 : N2 ;
   mountain_N : N ;
@@ -282,6 +285,7 @@ fun
   speak_V2 : V2 ;
   spit_V : V ;
   split_V2 : V2 ;
+  spoon_N : N ;
   squeeze_V2 : V2 ;
   stab_V2 : V2 ;
   stand_V : V ;
@@ -312,6 +316,7 @@ fun
   throw_V2 : V2 ;
   tie_V2 : V2 ;
   today_Adv : Adv ;
+  toe_N : N;
   tongue_N : N ;
   tooth_N : N ;
   train_N : N ;
@@ -349,5 +354,6 @@ fun
   year_N : N ;
   yellow_A : A ;
   young_A : A ;
+  youth_N : N ;
 
 }
