@@ -10,10 +10,10 @@ resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 --2 Nouns
 
 	oper
-	CommonNoun : Type = {s : Number => Str ; g : Gender ; anim : Animacy } ;
+	CommonNoun : Type = { s : Number => Str ; g : Gender ; anim : Animacy } ;
 
-	numForms : Str -> Str -> Number => Str = \one, many ->
-		table {Sg => one ; Pl => many};
+	numForms : Str -> Str -> Number => Str = \singular, plural ->
+		table {Sg => singular ; Pl => plural};
 
 	mkNoun : (Number => Str) -> Gender -> Animacy -> CommonNoun =
 		\number_format, gender, animacy -> {s = number_format ; g = gender ; anim =animacy};
@@ -47,6 +47,36 @@ resource MorphoKam = open Prelude, (Predef=Predef), ResKam in {
 		g15_6	=> "ma" + Predef.drop 2 noun_sg;
 		g16_17	=> "kũ" + Predef.drop 2 noun_sg
 	};
-	in mkNounIrreg noun_sg noun_pl gender animacy;
+	in mkNounIrreg noun_sg noun_pl gender animacy ;
+
+--2 Adjectives
+	Adj : Type = { s : Number => Str ; g : Gender } ;
+
+	mkAdj : (Number => Str) -> Gender -> Adj =
+		\adj_format, gender -> { s = adj_format ; g = gender } ;
+
+	mkAdjectiveReg : Str -> Gender -> Stem -> Adj =
+		\adjective, gender, stem ->
+			let adjective_sg = case gender of {
+					g1_2 = case stem of {
+						C => case Predef.take 1 adjective of {
+							  
+						} ;
+						V => case Predef.take 1 adjective of {
+
+						} ;
+					} ;
+				};
+				adjective_pl = case gender of {
+					g1_2 = case stem of {
+						C => case Predef.take 1 adjective of {
+							  
+						} ;
+						V => case Predef.take 1 adjective of {
+
+						} ;
+					} 
+				};
+			in mkAdj (numForms adjective_sg adjective_pl) gender ;
 
 } ;
