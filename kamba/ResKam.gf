@@ -30,5 +30,7 @@ resource ResKam = ParamX ** open Prelude in {
 
 --2 For $Verb$
 
-
+--2 For Adjectives
+	param Stem	= C | V;
+	
 }
