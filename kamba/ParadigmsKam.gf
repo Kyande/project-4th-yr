@@ -41,17 +41,22 @@ oper
 
 -- generate regular nouns i.e nouns that do not need special handling
 
-regN : Str -> Gender -> Animacy -> N;
+regN : Str -> Gender -> Animacy -> N ;
 regN = \noun, gender, animacy ->
   mkNounReg noun gender animacy ** {lock_N = <>};
 
 -- generate irregular nouns i.e nouns that require special handling
-mkN : (noun_sg, noun_pl : Str) -> Gender -> Animacy -> N;
+mkN : (noun_sg, noun_pl : Str) -> Gender -> Animacy -> N ;
 mkN = \noun_sg, noun_pl, gender, animacy ->
   mkNounIrreg noun_sg noun_pl gender animacy ** {lock_N = <>};
 
 -- 3 Verbs
 
+-- 4 Adjecives
+regAdj : Str -> Gender -> Stem -> A ;
+regAdj = \adjective, gender, stem ->
+  mkAdjectiveReg adjective gender stem ** {lock_A = <>} ; 
+ 
 --2 Definitions of paradigms
 --
 -- The definitions should not bother the user of the API. So they are
@@ -77,5 +82,8 @@ mkN = \noun_sg, noun_pl, gender, animacy ->
   u_ma        = g14_6 ;
   ku_ma       = g15_6 ;
   va_ku       = g16_17 ;
+  Stem        = ResKam.Stem ;
+  c_stem      = C ;
+  v_stem      = V ;
 
 } ;
