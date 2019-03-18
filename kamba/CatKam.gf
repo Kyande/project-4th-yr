@@ -4,5 +4,6 @@ concrete CatKam of Cat = CommonX - [Pol,SC,CAdv] ** open ResKam, Prelude in {
 
   lincat
 
-    N = {s : Number => Str ; g : Gender ; anim : Animacy };
+    N = {s : Number => Str ; g : Gender ; anim : Animacy } ;
+    A = {s : Number => Str ; g : Gender } ;
 };
