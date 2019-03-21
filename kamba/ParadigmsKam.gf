@@ -2,25 +2,17 @@
 
 --1 Kamba Lexical Paradigms
 
-resource ParadigmsKam = open
-  (Predef=Predef),
-  Prelude,
-  MorphoKam,
-  ResKam,
-  CatKam
-  in {
---1 Parameters
-flags optimize=all;
+
+resource ParadigmsKam = open(Predef=Predef), Prelude, MorphoKam,ResKam,CatKam in {
+
+flags optimize=all ;
+
+--2 Parameters
+--
+-- To abstract over gender names, we define the following identifiers.
 
 oper
--- Abstraction for animacy types.
-
-  Animacy : Type;
-
-  animate   : Animacy;
-  inanimate : Animacy;
-
--- Abstraction for noun classes.
+  -- Abstraction for noun classes.
 
   Gender : Type ;
 
@@ -35,39 +27,57 @@ oper
   ku_ma   : Gender ;
   va_ku   : Gender ;
 
-  locative   : Case ; 
+  locative   : Case ;
 
---2 Nouns
+  --2 Nouns
 
--- generate regular nouns i.e nouns that do not need special handling
+  -- generate regular nouns i.e nouns that do not need special handling
 
-regN : Str -> Gender -> Animacy -> N ;
-regN = \noun, gender, animacy ->
-  mkNounReg noun gender animacy ** {lock_N = <>};
+  regN : Str -> Gender -> N ;
+  regN = \noun, gender ->
+  mkNounReg noun gender ** {lock_N = <>};
 
--- generate irregular nouns i.e nouns that require special handling
-mkN : (noun_sg, noun_pl : Str) -> Gender -> Animacy -> N ;
-mkN = \noun_sg, noun_pl, gender, animacy ->
-  mkNounIrreg noun_sg noun_pl gender animacy ** {lock_N = <>};
+  -- generate irregular nouns i.e nouns that require special handling
+  mkN : (noun_sg, noun_pl : Str) -> Gender -> N ;
 
--- 3 Verbs
+  mkN = \noun_sg, noun_pl, gender ->
+  mkNounIrreg noun_sg noun_pl gender ** {lock_N = <>};
 
--- 4 Adjecives
-regAdj : Str -> Gender -> Stem -> A ;
-regAdj = \adjective, gender, stem ->
-  mkAdjectiveReg adjective gender stem ** {lock_A = <>} ; 
- 
---2 Definitions of paradigms
---
--- The definitions should not bother the user of the API. So they are
--- hidden from the document.
+  -- 3 Verbs
+
+  -- 4 Adjectives
+  regA : Str -> A ;
+
+  compADeg : A -> A ;
+
+  regA a = compADeg {
+         s = \\_ => (mkAdjective a).s ;
+         lock_A = <>} ;
+
+  compADeg a =
+  {
+       s = table {
+          Posit => a.s ! Posit ;
+           _ => \\f => a.s ! Posit ! f ++ "ta"
+       } ;
+     lock_A = <>
+  } ;
+
+  --2 Prepositions
+  mkPrep : Str -> Prep ;
+  mkPrep p = { s = p ; lock_Prep = <> } ;
+
+  --2 Definitions of paradigms
+  --
+  -- The definitions should not bother the user of the API. So they are
+  -- hidden from the document.
 
   Gender      = ResKam.Gender ;
   Number      = ResKam.Number ;
-  Case        = ResKam.Case ;
-  Animacy     = ResKam.Animacy;
-  animate     = AN;
-  inanimate   = IN;
+  -- Case        = ResKam.Case ;
+  -- Animacy     = ResKam.Animacy;
+  -- animate     = AN;
+  -- inanimate   = IN;
   singular    = Sg;
   plural      = Pl;
   nominative  = Nom;
@@ -82,8 +92,8 @@ regAdj = \adjective, gender, stem ->
   u_ma        = g14_6 ;
   ku_ma       = g15_6 ;
   va_ku       = g16_17 ;
-  Stem        = ResKam.Stem ;
-  c_stem      = C ;
-  v_stem      = V ;
+  Spatial     = ResKam.Spatial ;
+  close       = Close ;
+  far         = Far ;
 
 } ;

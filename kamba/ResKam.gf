@@ -2,35 +2,46 @@
 
 --1 Kamba auxiliary operations.
 
+-- This module contains operations that are needed to make the
+-- resource syntax work. To define everything that is needed to
+-- implement $Test$, it moreover contains regular lexical
+-- patterns needed for $Lex$.
+
 resource ResKam = ParamX ** open Prelude in {
 
   flags optimize=all ;
 
+  --For $Noun$
+  -- Some parameters, such as $Number$, are inherited from $ParamX$.
 
--- Some parameters, such as $Number$, are inherited from $ParamX$.
+  --2 For $Noun$
 
---2 For $Noun$
+  -- This is case as needed when inflecting nouns.
 
--- This is case as needed when inflecting nouns.
+    param Case    = Nom | Loc ;
 
-  param Case    = Nom | Loc ;
+    -- param Animacy = AN | IN;
 
-  param Animacy = AN | IN;
+    param Gender  = g1_2 |
+  	g3_4 |
+  	g5_6 |
+  	g7_8 |
+  	g9_10 |
+  	g11_10 |
+  	g12_13 |
+  	g14_6 |
+  	g15_6 |
+  	g16_17;
 
-  param Gender  = g1_2 |
-	g3_4 |
-	g5_6 |
-	g7_8 |
-	g9_10 |
-	g11_10 |
-	g12_13 |
-	g14_6 |
-	g15_6 |
-	g16_17;
+  --2 For $Verb$
 
---2 For $Verb$
-
---2 For Adjectives
-	param Stem	= C | V;
-	
+  --2 For Adjectives
+    param AForm = AF Number Gender | AA ;
+  --2 For Quantifiers
+    param Spatial = Close | Far ;
+  oper
+    AGR = {n : Number ; g : Gender ; p : Person} ;
+    Agr : Type = {n : Number ; g : Gender ; p : Person} ;
+    agr : Number -> Gender -> Person -> Agr =
+      \n,g,p -> {n = n ; g = g ; p = p} ;
 }

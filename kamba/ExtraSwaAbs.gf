@@ -1,0 +1,4 @@
+abstract ExtraKamAbs = Extra ** {
+
+
+}

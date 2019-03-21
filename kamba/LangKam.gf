@@ -1,13 +1,10 @@
---# -path=.:../abstract:../common:../api:../prelude
+--# -path=.:../abstract:../common:../prelude
 
-concrete LangKam of Lang =
-  -- GrammarKam,
+concrete LangKam of Lang = 
+  GrammarKam,
   LexiconKam
-  -- ,ConstructionKam
-  -- ,DocumentationKam --# notpresent
-  -- ,MarkupKam - [stringMark]
   ** {
 
-
+flags startcat = Phr ; unlexer = text ; lexer = text ;
 
 } ;
