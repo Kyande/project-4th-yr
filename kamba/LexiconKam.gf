@@ -89,5 +89,17 @@ lin
   new_A = regA "eũ" ;
   black_A = regA "iũ" ;
   old_A = regA "kũũ";
+  rotten_A = regA "ou" ;
+  heavy_A = regA "ito" ;
+  good_A = regA "seo" ;
+  short_A = regA "kuvi" ;
+  bad_A = regA "thũku" ;
+  red_A = regA "tune" ;
+  dry_A = regA "ũmũ" ;
+  hot_A = regA "vyu" ;
+  straight_A = regA "lũngalũ" ;
+  broad_A = regA "thanthaau" ;
+  thin_A = regA "theke" ;
+  cold_A = regA "thithu" ;
 
 } ;
