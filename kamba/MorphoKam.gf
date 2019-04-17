@@ -51,35 +51,34 @@ oper
   in mkNounIrreg noun_sg noun_pl gender;
 
 --$Adjectives--
-
 oper
   Adj = {s : AForm => Str} ;
 
   consonantAdjprefix : Number -> Gender -> Str -> Str = \n,g,adjective ->
-   case <n,g> of {
-    <Sg,g1_2> => "mũ" ;
-    <Pl,g1_2> => "a" ;
-    <Sg,g3_4> => "mũ" ;
-    <Pl,g3_4> => "mĩ" ;
-    <Sg,g5_6> => "ĩ" ;
-    <Pl,g5_6> => "ma" ;
-    <Sg,g7_8> => "kĩ" ;
-    <Pl,g7_8> => "n" ;
-    <Sg,g9_10> => "n" ;
-    <Pl,g9_10> => "n" ;
-    <Sg,g11_10> => "mũ" ;
-    <Pl,g11_10> => "n" ;
-    <Sg,g12_13> => "ka" ;
-    <Pl,g12_13> => "tũ" ;
-    <Sg,g14_6> => "mũ" ;
-    <Pl,g14_6> => "ma" ;
-    <Sg,g15_6> => "kũ" ;
-    <Pl,g15_6> => "ma" ;
-    <Sg,g16_17> => "va" ;
-    <Pl,g16_17> => "kũ"
+      case <n,g> of {
+      <Sg,g1_2> => "mũ" ;
+      <Pl,g1_2> => "a" ;
+      <Sg,g3_4> => "mũ" ;
+      <Pl,g3_4> => "mĩ" ;
+      <Sg,g5_6> => "ĩ" ;
+      <Pl,g5_6> => "ma" ;
+      <Sg,g7_8> => "kĩ" ;
+      <Pl,g7_8> => "n" ;
+      <Sg,g9_10> => "n" ;
+      <Pl,g9_10> => "n" ;
+      <Sg,g11_10> => "mũ" ;
+      <Pl,g11_10> => "n" ;
+      <Sg,g12_13> => "ka" ;
+      <Pl,g12_13> => "tũ" ;
+      <Sg,g14_6> => "mũ" ;
+      <Pl,g14_6> => "ma" ;
+      <Sg,g15_6> => "kũ" ;
+      <Pl,g15_6> => "ma" ;
+      <Sg,g16_17> => "va" ;
+      <Pl,g16_17> => "kũ"
    } ;
 
-   vowelAdjprefix : Number -> Gender -> Str -> Str = \n,g,adjective ->
+  vowelAdjprefix : Number -> Gender -> Str -> Str = \n,g,adjective ->
     case <n,g> of {
      <Sg,g1_2> => "mw" ;
      <Pl,g1_2> => "a" ;
@@ -113,11 +112,41 @@ oper
       AA => adjective
       }
     } ;
-  --$Pronouns--
+--$Pronouns--
+-- oper
 
-  --$Deteminers--
+--$Deteminers--
+oper
+  mkDetPl : Gender -> Str = 
+    \g -> case <g> of {
+      <g1_2>   => "a" ;
+      <g3_4>   => "ĩ" ;
+      <g5_6>   => "a" ;
+      <g7_8>   => "i" ;
+      <g9_10>  => "i" ;
+      <g11_10> => "i" ;
+      <g12_13> => "tũ" ;
+      <g14_6>  => "a" ;
+      <g15_6>  => "a" ;
+      <g16_17> => "kũ"
+    } ;
 
-  --$Quantifiers--
+  mkDetSg : Gender -> Str =
+    \g -> case <g> of {
+      <g1_2>   => "ũ" ;
+      <g3_4>   => "ũ" ;
+      <g5_6>   => "yĩ" ;
+      <g7_8>   => "kĩ" ;
+      <g9_10>  => "ĩ" ;
+      <g11_10> => "ũ" ;
+      <g12_13> => "ka" ;
+      <g14_6>  => "ũ" ;
+      <g15_6>  => "kũ" ;
+      <g16_17> => "va" 
+    } ;
+
+--$Quantifiers--
+oper 
   mkQuant : Spatial -> Number -> Gender -> Case -> Str =
     \sp,n,g,c -> case <sp, n, g> of {
             <Close, Sg, g1_2>   => "ũũ" ;
@@ -161,5 +190,4 @@ oper
             <Far, Sg, g16_17> => "vaya" ;
             <Far, Pl, g16_17> => "kũya"
         } ;
-
-} ;
+    } ;

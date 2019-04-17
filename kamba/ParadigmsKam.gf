@@ -62,11 +62,10 @@ oper
        } ;
      lock_A = <>
   } ;
-
   --2 Prepositions
   mkPrep : Str -> Prep ;
   mkPrep p = { s = p ; lock_Prep = <> } ;
-
+  --2 Determiners
   --2 Definitions of paradigms
   --
   -- The definitions should not bother the user of the API. So they are

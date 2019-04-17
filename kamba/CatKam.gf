@@ -13,8 +13,5 @@ concrete CatKam of Cat = CommonX ** open ResKam, Prelude in {
     Quant = { s : Number => Gender => Case => Str} ;
     CN    = { s,s1,s2 : Number => Str; g : Gender ; hasAdj : Bool } ;
     NP    = { s: Case => Str ; n : Number } ;
-    --
-    -- NP = {
-    --
-    -- }
+
 };
