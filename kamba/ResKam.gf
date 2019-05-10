@@ -35,13 +35,21 @@ resource ResKam = ParamX ** open Prelude in {
 
   --2 For $Verb$
 
+    param VForm = VInf | 
+                  VImper Number Person | 
+                  VPres Number Gender Person | 
+                  VPast Number Gender Person | 
+                  VFut Number Gender Person;
+  
   --2 For Adjectives
+
     param AForm = AF Number Gender | AA ;
+  
   --2 For Quantifiers
     param Spatial = Close | Far ;
-  oper
-    AGR = {n : Number ; g : Gender ; p : Person} ;
-    Agr : Type = {n : Number ; g : Gender ; p : Person} ;
-    agr : Number -> Gender -> Person -> Agr =
-      \n,g,p -> {n = n ; g = g ; p = p} ;
+    oper
+      AGR = {n : Number ; g : Gender ; p : Person} ;
+      Agr : Type = {n : Number ; g : Gender ; p : Person} ;
+      agr : Number -> Gender -> Person -> Agr =
+        \n,g,p -> {n = n ; g = g ; p = p} ;
 }

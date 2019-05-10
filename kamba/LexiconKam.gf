@@ -101,5 +101,13 @@ lin
   broad_A = regA "thanthaau" ;
   thin_A = regA "theke" ;
   cold_A = regA "thithu" ;
+  -- verbs
+  breathe_V = regV "veva" ;
+  come_V = regV "uka" ;
+  go_V = regV "thi" ;
+  laugh_V = regV "theka" ;
+  lie_V = regV "kenga" ;
+  run_V = regV "semba" ;
+  sit_V = regV "ikala" ;
 
 } ;

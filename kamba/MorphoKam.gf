@@ -190,4 +190,48 @@ oper
             <Far, Sg, g16_17> => "vaya" ;
             <Far, Pl, g16_17> => "kũya"
         } ;
-    } ;
+--$Verbs--
+oper
+  Verb = { s : VForm => Str };
+  mkVerb : Str -> Verb = \verb -> {
+    s = table {
+      VInf => "ku" + verb;
+      VImper n p => case <n, p> of {
+        <Sg, P2> => verb;
+        <_, _> => verb + "i"
+      };
+      VPres n g p => "nĩ" ++ verbPrefix n g p ++ init verb ++ "ete";
+      VPast n g p => "nĩ" ++ verbPrefix n g p ++ "na" ++ init verb ++ "ie";
+      VFut n g p  => "nĩ" ++ verbPrefix n g p ++ "ka" ++ init verb ++ "a"
+    }
+  };
+
+  verbPrefix : Number -> Gender -> Person -> Str = \n, g, p ->
+    case <n, g, p> of {
+      <Sg, g1_2, P1> => "na" ;
+      <Pl, g1_2, P1> => "twa" ;
+      <Sg, g1_2, P2> => "wa" ;
+      <Pl, g1_2, P2> => "mwa" ;
+      <Sg, g1_2, P3> => "wa" ;
+      <Pl, g1_2, P3> => "ma" ;
+      <Sg, g3_4, _> => "wa" ;
+      <Pl, g3_4, _> => "ya" ;
+      <Sg, g5_6, _> => "ya" ;
+      <Pl, g5_6, _> => "ma" ;
+      <Sg, g7_8, _> => "kya" ;
+      <Pl, g7_8, _> => "sya" ;
+      <Sg, g9_10, _> => "ya" ;
+      <Pl, g9_10, _> => "sya" ;
+      <Sg, g11_10, _> => "wa" ;
+      <Pl, g11_10, _> => "sya" ;
+      <Sg, g12_13, _> => "ka" ;
+      <Pl, g12_13, _> => "twa" ;
+      <Sg, g14_6, _> => "wa" ;
+      <Pl, g14_6, _> => "ma" ;
+      <Sg, g15_6, _> => "kwa" ;
+      <Pl, g15_6, _> => "ma" ;
+      <Sg, g16_17, _> => "va" ;
+      <Pl, g16_17, _> => "kwa"
+    };
+ 
+} ;

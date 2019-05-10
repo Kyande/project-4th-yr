@@ -44,16 +44,15 @@ oper
   mkNounIrreg noun_sg noun_pl gender ** {lock_N = <>};
 
   -- 3 Verbs
+  regV : Str -> V;
+  regV = \str -> mkVerb str ** { lock_V = <> };
 
   -- 4 Adjectives
   regA : Str -> A ;
-
   compADeg : A -> A ;
-
   regA a = compADeg {
          s = \\_ => (mkAdjective a).s ;
          lock_A = <>} ;
-
   compADeg a =
   {
        s = table {
@@ -62,10 +61,11 @@ oper
        } ;
      lock_A = <>
   } ;
+
   --2 Prepositions
   mkPrep : Str -> Prep ;
   mkPrep p = { s = p ; lock_Prep = <> } ;
-  --2 Determiners
+
   --2 Definitions of paradigms
   --
   -- The definitions should not bother the user of the API. So they are
