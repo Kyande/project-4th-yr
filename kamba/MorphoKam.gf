@@ -200,9 +200,9 @@ oper
         <Sg, P2> => verb;
         <_, _> => verb + "i"
       };
-      VPres n g p => "nĩ" ++ verbPrefix n g p ++ init verb ++ "ete";
-      VPast n g p => "nĩ" ++ verbPrefix n g p ++ "na" ++ init verb ++ "ie";
-      VFut n g p  => "nĩ" ++ verbPrefix n g p ++ "ka" ++ init verb ++ "a"
+      VPres n g p => "nĩ" + verbPrefix n g p + init verb + "ete";
+      VPast n g p => "nĩ" + verbPrefix n g p + init verb + "ie";
+      VFut n g p  => "nĩ" + verbPrefix n g p + "ka" + init verb + "a"
     }
   };
 
