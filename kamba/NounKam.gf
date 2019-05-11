@@ -17,12 +17,12 @@ concrete NounKam of Noun = CatKam ** open MorphoKam, ResKam, Prelude in {
       in case <mod> of {
         	<False> => {
                 s = \\c => cn.s ! num ++ det.s ! g ! c ;
-                a = agr num g P3 ;
+                a = agreement num g P3 ;
                 n = num
                 } ;
         	<True> => {
                 s = \\c => cn.s1 ! num ++ det.s ! g ! c  ++ cn.s2 ! num  ;
-                a = agr num g P3 ;
+                a = agreement num g P3 ;
                 n = num
                 }
        };

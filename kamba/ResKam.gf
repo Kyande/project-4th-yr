@@ -45,11 +45,12 @@ resource ResKam = ParamX ** open Prelude in {
 
     param AForm = AF Number Gender | AA ;
   
-  --2 For Quantifiers
+  --2 For Agreements
+
     param Spatial = Close | Far ;
+
     oper
-      AGR = {n : Number ; g : Gender ; p : Person} ;
-      Agr : Type = {n : Number ; g : Gender ; p : Person} ;
-      agr : Number -> Gender -> Person -> Agr =
+      Agr = { n : Number ; g : Gender ; p : Person } ;
+      agreement : Number -> Gender -> Person -> Agr =
         \n,g,p -> {n = n ; g = g ; p = p} ;
 }
