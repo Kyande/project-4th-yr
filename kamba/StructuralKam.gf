@@ -10,4 +10,5 @@ concrete StructuralKam of Structural = CatKam **
       --every_Det = { s = \\g,c => "kĩla"; n = Sg } ;
       many_Det  = { s = \\g,c => mkDetPl g + "ingi" ; n = Pl } ;
       few_Det   = { s = \\g,c => mkDetPl g + "nini" ; n = Pl } ;
+      
 }

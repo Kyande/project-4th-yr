@@ -11,9 +11,11 @@ concrete CatKam of Cat = CommonX ** open ResKam, Prelude in {
     -- Pron  = { s :Number => Str ; p : Person};
     Det   = { s : Gender => Case => Str ; n : Number } ;
     Quant = { s : Number => Gender => Case => Str} ;
+    Num   = { s : Gender => Str ; n : Number } ;
     CN    = { s,s1,s2 : Number => Str; g : Gender ; hasAdj : Bool } ;
     NP    = { s : Case => Str ; n : Number ; a : Agr} ;
     V     = { s : VForm => Str };
     VP    = { s : Tense => Anteriority => Polarity => Agr => Str ; s2 : Agr => Str } ;
+    Cl    = { s : Tense => Anteriority => Polarity => Str } ;
 
 };

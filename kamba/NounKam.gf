@@ -2,12 +2,12 @@ concrete NounKam of Noun = CatKam ** open MorphoKam, ResKam, Prelude in {
 
   lin
     UseN noun = {
-        s   = noun.s ;
-        s1  = noun.s ;
-        s2  = noun.s ;
-        g   = noun.g ;
-        hasAdj  = False ;
-      } ;
+      s   = noun.s ;
+      s1  = noun.s ;
+      s2  = noun.s ;
+      g   = noun.g ;
+      hasAdj  = False ;
+    } ;
 
     DetCN det cn =
       let
@@ -25,7 +25,7 @@ concrete NounKam of Noun = CatKam ** open MorphoKam, ResKam, Prelude in {
                 a = agreement num g P3 ;
                 n = num
                 }
-       };
+    };
 
     AdjCN ap cn =
       let
@@ -40,6 +40,13 @@ concrete NounKam of Noun = CatKam ** open MorphoKam, ResKam, Prelude in {
       };
       g = g ;
       hasAdj=True
+    } ;
 
-      } ;
+    NumSg = {s = \\_ => [] ; n = Sg} ;
+    NumPl = {s = \\_ => [] ; n = Pl} ;
+
+    DetQuant quant num = {
+      s = \\g,c => quant.s ! num.n ! g ! c ++ num.s ! g ;
+      n = num.n 
+    } ;
 } ;

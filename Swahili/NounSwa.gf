@@ -31,9 +31,9 @@ lin
 
 
     DetQuant quant num = {
- 	s = \\g,c,anim => quant.s ! num.n ! g ! anim ! c ++ num.s ! g; 
+ 	      s = \\g,c,anim => quant.s ! num.n ! g ! anim ! c ++ num.s ! g; 
         n = num.n               
-      };
+    };
 
     AdjCN ap cn = 
       let 

@@ -4,7 +4,7 @@ flags optimize=all_subs ;
 
 lin
 	UseV verb = {
-        s = \\t,ant,b,agr => 
+        s = \\t,ant,pol,agr => 
           let
             inf  = verb.s ! VInf ;
             imper = verb.s ! VImper agr.n agr.p;
@@ -12,7 +12,7 @@ lin
             past  = verb.s ! VPast agr.n agr.g agr.p ;
             fut = verb.s ! VFut agr.n agr.g agr.p ; 
           in
-          case <t,ant,b> of {
+          case <t,ant,pol> of {
             <_,Anter,Pos> => imper;
             <Pres,Simul,Pos> => pres  ;
             <Past,Anter,Pos> => past ;
