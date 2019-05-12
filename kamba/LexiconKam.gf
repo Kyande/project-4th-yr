@@ -86,7 +86,7 @@ lin
   -- place_N = regN "vandũ" va_ku ;
   famine_N = regN "yua" i_ma ;
   --Adjectives  
-  new_A = regA "eũ" ;
+  new_A = regA "aũ" ;
   black_A = regA "iũ" ;
   old_A = regA "kũũ";
   rotten_A = regA "ou" ;
@@ -96,17 +96,16 @@ lin
   bad_A = regA "thũku" ;
   red_A = regA "tune" ;
   dry_A = regA "ũmũ" ;
-  hot_A = regA "vyu" ;
   straight_A = regA "lũngalũ" ;
   broad_A = regA "thanthaau" ;
   thin_A = regA "theke" ;
   cold_A = regA "thithu" ;
   -- verbs
   breathe_V = regV "veva" ;
-  come_V = regV "uka" ;
+  come_V = regV "ũka" ;
   go_V = regV "thi" ;
   laugh_V = regV "theka" ;
-  lie_V = regV "kenga" ;
+  lie_V = regV "kengana" ;
   run_V = regV "semba" ;
   sit_V = regV "ikala" ;
 
