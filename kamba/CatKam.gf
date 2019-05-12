@@ -17,5 +17,6 @@ concrete CatKam of Cat = CommonX ** open ResKam, Prelude in {
     V     = { s : VForm => Str };
     VP    = { s : Tense => Anteriority => Polarity => Agr => Str ; s2 : Agr => Str } ;
     Cl    = { s : Tense => Anteriority => Polarity => Str } ;
+    S     = { s : Str } ;
 
 };
