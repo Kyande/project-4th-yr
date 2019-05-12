@@ -9,7 +9,7 @@ concrete SentenceKam of Sentence = CatKam ** open Prelude, ResKam in {
     } ;
 
     UseCl t p cl = {
-        s = cl.s !  t.t ! t.a ! p.p ;
+        s = t.s ++ p.s ++ cl.s !  t.t ! t.a ! p.p ;
     } ;
 
 }
