@@ -1,9 +1,22 @@
 --# -path=.:../abstract:../common:prelude
 
-concrete GrammarKam of Grammar =NounKam , AdjectiveKam , StructuralKam ,VerbKam , SentenceKam , AdverbKam
-  
-  ** {
+concrete GrammarKam of Grammar =
+  NounKam, 
+  VerbKam, 
+  AdjectiveKam,
+  AdverbKam,
+  NumeralKam,
+  SentenceKam,
+  QuestionKam,
+  RelativeKam,
+  ConjunctionKam,
+  PhraseKam,
+  TextX - [Pol,PPos,PNeg,SC,CAdv],
+  StructuralKam,
+  IdiomKam,
+  TenseX - [Pol,PPos,PNeg,SC,CAdv]
+  ** open ResKam, Prelude in {
 
-flags startcat = Phr ; unlexer = text ; lexer = text ;
+  flags startcat = Phr ; unlexer = text ; lexer = text ;
 
 } ;
