@@ -14,9 +14,9 @@ lin
           in
           case <t,ant,pol> of {
             <_,Anter,Pos> => imper;
-            <Pres,Simul,Pos> => pres  ;
-            <Past,Anter,Pos> => past ;
-            <Fut, Anter,Pos> => fut ;
+            <Pres,Simul,Pos> => pres ;
+            <Past,Simul,Pos> => past ;
+            <Fut, Simul,Pos> => fut ;
             <_,_,_> => inf
           } ;
        s2 = \\_ => []

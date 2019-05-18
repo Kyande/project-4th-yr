@@ -3,6 +3,6 @@ concrete AdjectiveKam of Adjective = CatKam ** open ResKam, Prelude , ParamX  in
   lin
 
     PositA  a = {
-       s = a.s ! Posit ;
-       } ;
+      s = a.s ! Posit ;
+    } ;
 };
